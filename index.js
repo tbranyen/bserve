@@ -14,7 +14,7 @@ const port = env.PORT || 8000;
 const scriptFile = argv[2] || 'index.js';
 
 server.get('*.js', async (req, res, next) => {
-  const filename = join(__dirname, req.path);
+  const filename = join(cwd, req.path);
   const code = await promisify(readFile)(filename, { encoding: 'utf8' });
   const { ast } = await transformAsync(code, { filename, cwd, ast: true });
 
@@ -24,7 +24,7 @@ server.get('*.js', async (req, res, next) => {
 
 server.use(express.static(cwd));
 
-server.use('/', (req, res, next) => {
+server.get('/', (req, res, next) => {
   res.send(`
     <!doctype html>
     <html>
