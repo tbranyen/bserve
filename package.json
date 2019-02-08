@@ -1,6 +1,6 @@
 {
   "name": "bserve",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Static HTTP server that transpiles JavaScript with Babel",
   "main": "index.js",
   "bin": "bin/bserve",
