@@ -10,7 +10,7 @@ const server = express();
 
 const cwd = process.cwd();
 const host = env.HOST || '127.0.0.1';
-const port = env.PORT || 8000;
+const port = Number(env.PORT || 8000);
 const scriptFile = argv[2] || 'index.js';
 
 server.get('*.js', async (req, res, next) => {
